@@ -2,9 +2,9 @@ import cv2
 from matplotlib import pyplot as plt
 import numpy as np
 
-PATH = "ProblemSets/ps0_python/output/"
+PATH = "output/"
 
-img = cv2.cvtColor(cv2.imread(PATH+"ps0-1-a-2.png", cv2.IMREAD_UNCHANGED), cv2.COLOR_BGR2RGB)
+img = cv2.cvtColor(cv2.imread(PATH+"ps0-1-a-1.png", cv2.IMREAD_UNCHANGED), cv2.COLOR_BGR2RGB)
 
 row, col, ch = img.shape
 
@@ -47,11 +47,11 @@ plt.imshow(img)
 
 plt.subplot(1,4,2)
 plt.imshow(img1)
-# plt.imsave(PATH+"ps0-5-a-1.png", img1)
+plt.imsave(PATH+"ps0-5-a-1.png", img1)
 
 plt.subplot(1,4,3)
 plt.imshow(img2)
-# plt.imsave(PATH+"ps0-5-b-1.png", img1)
+plt.imsave(PATH+"ps0-5-b-1.png", img2)
 
 plt.subplot(1,4,4)
 plt.imshow(img3)
