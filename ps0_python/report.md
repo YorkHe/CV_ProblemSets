@@ -57,3 +57,20 @@ You might find some classic vision examples here. Or take your own. Make sure th
     >Output: ps0-4-d-1.png (make sure that the values are legal when you write the image so that you can see all relative differences), text response: What do negative pixel values mean anyways?
     >
     >![](https://github.com/YorkHe/CV_ProblemSets/blob/master/ps0_python/output/ps0-4-d-1.png?raw=true)
+
+5. Noise
+    - Take the original colored image (image 1) and start adding Gaussian nose to the pixels in he green channel. Increase sigma until the noise is somewhat visible.
+    > Output: ps0-5-a-1.png, text response: What is the value of sigma you had to use?
+    >
+    >![](https://github.com/YorkHe/CV_ProblemSets/blob/master/ps0_python/output/ps0-5-a-1.png?raw=true)
+    
+    - Now, instead add that amount of noise to the blue channel
+    > Output: ps0-5-b-1.png
+    >
+    >![](https://github.com/YorkHe/CV_ProblemSets/blob/master/ps0_python/output/ps0-5-b-1.png?raw=true)
+    
+    - Which looks better, why?
+    > The latter one.
+    
+    
+
