@@ -18,8 +18,8 @@ def hough_lines_acc(BW, rho_resolution=1.0, theta=range(0, 180, 1)):
 	for x in range(rows):
 		for y in range(cols):
 			if (BW[x, y] != 0):
-				for t in range(len(theta)):
-					d = x * cos_d[t] - y * sin_d[t]
+				for t in theta:
+					d = y * cos_d[t] - x * sin_d[t]
 					H[d + 2 * (max(rows, cols)),t] += 1
 
 	return (H, theta, rho_resolution)
@@ -43,7 +43,10 @@ def hough_peaks(acc, num, threshold = 60, neighborhood_size = 10):
 		y_center = (dy.start + dy.stop - 1) / 2
 		y.append(y_center)
 
-	return [(xx,yy) for (xx,yy) in zip(x,y)][:num]
+	ret_arr = [(xx,yy) for (xx,yy) in zip(x,y)]
+	ret_arr = sorted(ret_arr, key=lambda (x,y): acc[x,y], reverse=True)
+	return ret_arr[:num]
+
 
 def hough_lines_draw(img, outname, peaks, rhoResolution=1.0, theta=range(0, 180, 1)):
 	plt.figure(2)
@@ -52,11 +55,16 @@ def hough_lines_draw(img, outname, peaks, rhoResolution=1.0, theta=range(0, 180,
 	plt.imshow(img, cmap="Greys_r")
 	for (d, t) in peaks:
 		if math.fabs(math.sin(math.radians(t))) > 0.1:
-			x = range(row)
-			y = [1/math.sin(math.radians(t))* (math.cos(math.radians(t))* i - (d-row-col)) for i in x]
+			x = []
+			y = []
+			for xx in range(col):
+				yy = 1/math.sin(math.radians(t))* (math.cos(math.radians(t))* xx - (d-2*max(row,col)))
+				if yy >=0 and yy <= row:
+					x.append(xx)
+					y.append(yy)
 			plt.plot(x, y, color="red")
 		else:
-			plt.vlines(abs(d-row-col), ymin=0, ymax=row, color="red")
+			plt.vlines(abs(d-2*max(row,col)), ymin=0, ymax=row, color="red")
 
 	plt.savefig(outname)
 	plt.show()
