@@ -51,7 +51,14 @@ def hough_peaks(acc, num, threshold = 60, neighborhood_size = 10):
 def hough_lines_draw(img, outname, peaks, rhoResolution=1.0, theta=range(0, 180, 1)):
 	plt.figure(2)
 	print img.shape
-	row, col = img.shape
+	row = 0
+	col = 0
+	size = 0
+	if len(img.shape) == 2:
+		row, col = img.shape
+	else:
+		row,col,size = img.shape
+
 	plt.imshow(img, cmap="Greys_r")
 	for (d, t) in peaks:
 		if math.fabs(math.sin(math.radians(t))) > 0.1:

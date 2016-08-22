@@ -45,7 +45,7 @@ plt.plot(y_list, x_list, "ro")
 plt.savefig(PATH_out + "ps1-4-c-1.png")
 
 
-hough_lines_draw(img_smooth, PATH_out + "ps1-4-c-2.png", peaks)
+hough_lines_draw(img_origin, PATH_out + "ps1-4-c-2.png", peaks)
 
 plt.show()
 
