@@ -47,6 +47,7 @@ def hough_peaks(acc, num, threshold = 60, neighborhood_size = 10):
 
 def hough_lines_draw(img, outname, peaks, rhoResolution=1.0, theta=range(0, 180, 1)):
 	plt.figure(2)
+	print img.shape
 	row, col = img.shape
 	plt.imshow(img, cmap="Greys_r")
 	for (d, t) in peaks:
@@ -55,9 +56,9 @@ def hough_lines_draw(img, outname, peaks, rhoResolution=1.0, theta=range(0, 180,
 			y = [1/math.sin(math.radians(t))* (math.cos(math.radians(t))* i - (d-row-col)) for i in x]
 			plt.plot(x, y, color="red")
 		else:
-			plt.vlines((d-row-col), ymin=0, ymax=row, color="red")
+			plt.vlines(abs(d-row-col), ymin=0, ymax=row, color="red")
 
-	plt.savefig(PATH_out + outname)
+	plt.savefig(outname)
 	plt.show()
 
 
@@ -87,6 +88,6 @@ if __name__ == '__main__':
 
 	# plt.show()
 
-	hough_lines_draw(img, outname="ps1-2-c-1.png", peaks=peaks, rhoResolution=r, theta=t)
+	hough_lines_draw(img, outname=PATH_out + "ps1-2-c-1.png", peaks=peaks, rhoResolution=r, theta=t)
 
 	plt.show()
