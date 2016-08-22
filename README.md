@@ -7,3 +7,9 @@
     - (Gaussian) Noise
     
 - [Problem Set 1: Edges and Lines](https://github.com/YorkHe/CV_ProblemSets/blob/master/ps1_python/report.md)
+    - Edge Detection - Canny Algorithm
+    - Hough Transform 
+        - Line
+        - Circle
+        - With noise
+        - With distortion
