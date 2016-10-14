@@ -1,7 +1,8 @@
 # ps2
 import os
-import numpy as np
+#import numpy as np
 import cv2
+from matplotlib import pyplot as plt
 
 ## 1-a
 # Read images
@@ -13,7 +14,10 @@ from disparity_ssd import disparity_ssd
 D_L = disparity_ssd(L, R)
 D_R = disparity_ssd(R, L)
 
-# TODO: Save output images (D_L as output/ps2-1-a-1.png and D_R as output/ps2-1-a-2.png)
-# Note: They may need to be scaled/shifted before saving to show results properly
+plt.subplot(121)
+plt.imshow(D_L)
 
-# TODO: Rest of your code here
+plt.subplot(122)
+plt.imshow(D_R)
+
+plt.show()

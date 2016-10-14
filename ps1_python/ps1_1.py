@@ -19,5 +19,4 @@ plt.subplot(122)
 plt.imshow(img2, cmap="Greys_r")
 # plt.imsave(PATH_out+"ps1-1-a-1.png", img2, cmap="Greys_r")
 
-
 plt.show()
